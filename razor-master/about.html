@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ski Service Ski</title>
+    <!-- bootstrap Style CSS File -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Custom Style CSS File -->
+    <link rel="stylesheet" type="text/css" href="css/custom-style.css" />
+    <link rel="stylesheet" type="text/css" href="css/loaders.css" />
+    <!-- Font-Awesome Style CSS File -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="font-awesome/css/font-awesome.min.css"
+    />
+    <style>
+      /* Styling für den About-Us-Container */
+      .about-container {
+        background-color: rgba(255, 255, 255, 0.9); /* Halbtransparentes Weiß */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+        padding: 20px;
+        margin-top: 50px;
+      }
+      .about-container h2 {
+        font-weight: bold;
+        color: #2a9df4; /* Blau passend zur Ski-Thematik */
+      }
+      .about-container p {
+        color: #333; /* Dunkelgrauer Text */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Page loading animation  Test-->
+    <div class="loader loader-bg">
+      <div class="loader-inner ball-pulse">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- Top navigation -->
+    <nav class="navbar navbar-expand-md fixed-top top-nav">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"
+          ><strong>JetStream Ski-Service</strong></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"
+            ><img src="img/icons/menu.png"
+          /></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto text-sm-right text-md-right">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Über uns</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.html">Registrieren</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bestellung.html">Service buchen</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Three -->
+    <section
+      id="home"
+      class="intro bg-overlay parallax"
+      style="
+        background-image: url(img/skifahrerbild.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%vw;
+        height: 100%vh;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Bild Container -->
+          <div class="col-lg-6 col-md-12 text-center">
+            <div class="about-image">
+              <img
+                src="img/Skiservice_Team.jpg"
+                alt="Teamfoto"
+                class="img-fluid rounded shadow-lg"
+                style="height: 60vh; padding-top: 10px"
+              />
+            </div>
+          </div>
+
+          <!-- Text Container -->
+          <div class="col-lg-6 col-md-12 caption-two-panel pt-5">
+            <div class="intro-caption">
+              <h2 class="font-abril text-primary">Wer sind wir?</h2>
+              <p class="lead ml-2 text-white"></p>
+              <p class="ml-2 text-white">
+                Wir sind ein leidenschaftliches Team von
+                Wintersport-Enthusiasten mit langjähriger Erfahrung im Bereich
+                Skiservice. Unser Ziel ist es, Ihnen den besten Service zu
+                bieten, damit Sie Ihre Zeit auf der Piste in vollen Zügen
+                genießen können. Egal, ob Anfänger oder Profi wir stehen Ihnen
+                mit Rat und Tat zur Seite, um Ihre Ausrüstung optimal
+                vorzubereiten.
+              </p>
+              <p class="ml-2 text-white">
+                Wir kümmern uns um Ihre Ski und Snowboards, als wären es unsere
+                eigenen. Mit modernster Technik, präziser Handarbeit und einem
+                Auge fürs Detail bieten wir Ihnen alles, was Sie für ein
+                perfektes Winterabenteuer brauchen. Von der Kantenpräparation
+                bis zum Wachsen Ihrer Beläge sorgen wir dafür, dass Ihre
+                Ausrüstung für jede Herausforderung bereit ist.
+              </p>
+              <p class="ml-2 text-white">
+                Zusätzlich bieten wir individuelle Beratung, um Ihre Ausrüstung
+                auf Ihre Bedürfnisse und Ihren Fahrstil abzustimmen. Unser
+                Service umfasst nicht nur professionelle Pflege, sondern auch
+                die Leidenschaft, die uns antreibt, Ihre Wintersport-Erfahrung
+                unvergesslich zu machen. Vertrauen Sie uns Ihre Ausrüstung an
+                und erleben Sie den Unterschied!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Block -->
+    <div class="copy-footer py-3" style="background-color: #b57f38">
+      <div class="container text-center text-light">
+        <p class="mb-1">
+          &copy;
+          <a href="#" class="text-light" target="_blank">Ski-Service.com</a>
+          <span id="year"></span>. Alle Rechte vorbehalten.
+          <a
+            href="impressum.html"
+            style="color: white; text-decoration: underline"
+            >Impressum</a
+          >
+        </p>
+        <p class="mb-0">
+          Website erstellt und betrieben von <strong>Lenny Brun</strong> und
+          <strong>Ege Ulu</strong>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Javascript Files -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/gmap-custom.js"></script>
+    <script src="js/core.js"></script>
+    <script>
+      // Automatisch das aktuelle Jahr einfügen
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ski Service Ski</title>
+</head>
+<!-- bootstrap Style CSS File -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Custom Style CSS File -->
+<link rel="stylesheet" type="text/css" href="css/custom-style.css">
+<link rel="stylesheet" type="text/css" href="css/loaders.css"/>
+<!-- Font-Awesome Style CSS File -->
+<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+<style>
+.info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Halbtransparenter schwarzer Schleier */
+    z-index: 1; /* Über dem Hintergrundbild, aber hinter dem Text */
+}
+
+.info-section > .container {
+    position: relative;
+    z-index: 2; /* Text über der Überlagerung */
+}
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Halbtransparenter schwarzer Schleier */
+    z-index: 1; /* Über dem Hintergrundbild, aber hinter dem Text */
+}
+
+#about > .container {
+    position: relative;
+    z-index: 2; /* Text über der Überlagerung */
+}
+
+</style>
+<body>
+
+<!-- Page loading animation  Test-->
+<div class="loader loader-bg">
+	<div class="loader-inner ball-pulse">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</div>
+
+<!-- Top navigation -->
+<nav class="navbar navbar-expand-md fixed-top top-nav">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="index.html"><strong>JetStream Ski-Service</strong></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"><img src="img/icons/menu.png"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto text-sm-right text-md-right">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="service.html">Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.html">Über uns</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="login.html">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="register.html">Registrieren</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="bestellung.html">Service buchen</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<!-- Intro Three -->
+<section id="home" class="intro bg-overlay parallax" style="
+	background-image: url(img/skifahrerbild.jpg); 
+	background-size: cover; 
+	background-repeat: no-repeat; 
+	background-position: center; 
+	width: 100%vw; 
+	height: 100vh;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12 caption-two-panel ml-auto pt-5">
+				<div class="intro-caption mt-5">
+				<h1 class="text-primary mb-2">Perfekte Kanten. Sicherer Halt. Unvergessliche Abfahrten</h1>
+				<p class="text-white mb-4"> Ski-Service für deine besten Wintermomente!</p>
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- Info block 1 -->
+<section id="services" class="info-section text-white bg-right bg-dark" style="background-image: url(img/services.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    width: 100%vw; 
+    height: 100vh;
+    position: relative;">
+    <div class="container">
+        <div class="row">
+            <!-- Alle Spalten in voller Breite -->
+            <div class="col-md-12">
+                <div class="head-box text-center">
+                    <h2 class="font-abril text-primary">Services die wir anbieten</h2>
+                </div>
+                <div class="three-panel-block mt-5">
+                    <div class="row">
+                        <!-- Service 1 -->
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="service-block mb-5">
+                                <i class="icon-box mb-3 float-left w-100"><img src="img/icons/ski (1).png" class="img-fluid"></i>
+                                <h3 class="text-primary">Ski-Wachsen</h3>
+                                <p>Verbesserung der Gleiteigenschaften für alle Schneebedingungen.</p>
+                            </div>
+                        </div>
+                        <!-- Service 2 -->
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="service-block mb-5">
+                                <i class="icon-box mb-3 float-left w-100"><img src="img/icons/schleifen (1).png" class="img-fluid"></i>
+                                <h3 class="text-primary">Kantenschleifen</h3>
+                                <p>Schärfen der Skikanten für optimale Kontrolle und präzise Kurven.</p>
+                            </div>
+                        </div>
+                        <!-- Service 3 -->
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="service-block mb-5">
+                                <i class="icon-box mb-3 float-left w-100"><img src="img/icons/ski-stiefel (1).png" class="img-fluid"></i>
+                                <h3 class="text-primary">Bindungskontrolle und -einstellung</h3>
+                                <p>Prüfung und Anpassung der Bindungen für maximale Sicherheit auf der Piste.</p>
+                            </div>
+                        </div>
+                        <!-- Service 4 -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 position-relative">
+                            <div class="service-block mb-5">
+                                <i class="icon-box mb-3 float-left w-100"><img src="img/icons/service (1).png" class="img-fluid"></i>
+                                <h3 class="text-primary">Grosser Service</h3>
+                                <p>Rundum-Paket: Kantenschliff, Wachsen, Belag-Reparatur und Bindungsprüfung.</p>
+                            </div>
+                            <!-- Button unten rechts -->
+                            <div class="text-right mt-4">
+                                <a href="service.html" class="btn btn-primary px-4 py-2" style="background-color: #b57f38; border: none; font-weight: bold;">
+                                    Erfahre Mehr
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Content block 1 -->
+<section id="about" class="copy-content-sec sec-bg-02 h-100" style="background-image: url(img/aboutus.jpg); 	background-size: cover; 
+background-repeat: no-repeat; 
+background-position: center; 
+width: 100%vw; 
+height: 100vh;
+position: relative;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 col-md-12 copy-container ml-auto">
+				<div class="copy-content pr-4">
+					<h2 class="font-abril text-primary">
+						Wer sind wir?
+					</h2>
+					<p class="lead ml-2 text-white">
+						Wir sind ein leidenschaftliches Team von Wintersport-Enthusiasten mit langjähriger Erfahrung im Bereich Skiservice. Unser Ziel ist es, Ihnen den besten Service zu bieten, damit Sie Ihre Zeit auf der Piste in vollen Zügen genießen können.
+					</p>
+					<p class="ml-2 text-white">
+						Wir kümmern uns um Ihre Ski und Snowboards, als wären es unsere eigenen. Mit modernster Technik und präziser Handarbeit bieten wir Ihnen alles, was Sie für ein perfektes Winterabenteuer brauchen.
+					</p>
+					<p class="mt-4 ml-2">
+						
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+  
+  
+<!-- Testimonial Block 01-->
+<section id="testimonial" class="testimonial-section sec-bg-04 bg-overlay py-5 h-100" style="background-image: url(img/backgroungreviews.jpg);">
+	<div class="container">
+		<div class="row">
+			<div class="head-box text-center mb-3 col-md-12 mt-5">
+				<h2 class="font-abril text-primary">Was unsere Kunden über uns sagen.</h2>
+			</div>
+		</div>
+		<div class="single-testimonial">
+		  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+		    <div class="carousel-inner pt-5" role="listbox">
+		      <div class="carousel-item active">
+		        <div class="testimonial-box text-center">
+					<div class="testimonial-content w-100 bg-faded>
+						<p class="mb-0"><i class="fa fa-quote-left fa-3x" aria-hidden="true"></i></p>
+						<p class="lead font-abril">"Einfach großartig!"" 
+						</p><p class="lead font-abril">
+							"Meine Ski waren nach dem Service wie neu. Perfekte Kanten und ein super schneller Belag. So macht Skifahren doppelt Spass!"</p>
+						<div class="testimonial-footer">
+							<h4 class="mt-2 mb-0 text-primary">Max Mustermann</h4>
+							<p>-Schweiz</p>
+						</div>
+					</div>
+				</div>
+		      </div>
+		      <div class="carousel-item">
+		        <div class="testimonial-box text-center">
+					<div class="testimonial-content w-100 bg-faded">
+						<p class="mb-0"><i class="fa fa-quote-left fa-3x" aria-hidden="true"></i></p>
+						<p class="lead font-abril">"Schnell und professionell!" 
+						</p><p class="lead font-abril">
+							"Ich habe den grossen Service ausprobiert und bin begeistert. Das Team ist freundlich, arbeitet schnell und die Qualität ist erstklassig."</p>
+						<div class="testimonial-footer">
+							<h4 class="mt-2 mb-0 text-primary">Harper Robertson</h4>
+							<p>-Germany</p>
+						</div>
+					</div>
+				</div>
+		      </div>
+		    </div>
+		    <div class="navigator-box">
+		    	<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+			      <span class="fa fa-angle-left" aria-hidden="true"></span>
+			      <span class="sr-only">Previous</span>
+			    </a>
+			    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+			      <span class="fa fa-angle-right" aria-hidden="true"></span>
+			      <span class="sr-only">Next</span>
+			    </a>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</section>
+
+<section id="contact">
+	<div class="container" style="background-color: white;">
+		<div class="row text-center">
+			<div class="col-12">
+				<h2>Kontaktieren Sie uns</h2>
+				<p class="lead">Wir freuen uns, von Ihnen zu hören! Nutzen Sie die unten angegebenen Kontaktdaten, um mit uns in Verbindung zu treten.</p>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-lg-8 col-md-10">
+				<div class="contact-details">
+					<h4>Unsere Kontaktdaten</h4>
+					<p><strong>Adresse:</strong> 123 Skistraße, 98765 Winterstadt</p>
+					<p><strong>Telefon:</strong> +41 123 456 789</p>
+					<p><strong>E-Mail:</strong> info@skiservice.ch</p>
+					<h5 class="mt-4">Öffnungszeiten</h5>
+					<p>Montag - Freitag: 08:00 - 18:00</p>
+					<p>Samstag: 09:00 - 14:00</p>
+					<p>Sonntag: Geschlossen</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+     <!-- Footer Block -->
+	 <div class="copy-footer py-3" style="background-color: #b57f38">
+		<div class="container text-center text-light">
+		  <p class="mb-1">
+			&copy;
+			<a href="#" class="text-light" target="_blank">Ski-Service.com</a>
+			<span id="year"></span>. Alle Rechte vorbehalten.
+			<a
+			  href="impressum.html"
+			  style="color: white; text-decoration: underline"
+			  >Impressum</a
+			>
+		  </p>
+		  <p class="mb-0">
+			Website erstellt und betrieben von <strong>Lenny Brun</strong> und
+			<strong>Ege Ulu</strong>.
+		  </p>
+		</div>
+	  </div>
+
+
+<!-- Javascript Files  -->
+<script  src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+<script>
+	// Automatisch das aktuelle Jahr einfügen
+	document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+<script src="js/bootstrap.min.js" ></script>
+
+<script src="js/gmap-custom.js" ></script>
+<script src="js/core.js"></script>
+
+<script>
+    const loginSection = document.querySelector('#login');
+    const registerSection = document.querySelector('#register');
+    const showRegisterLink = document.querySelector('a[href="#register"]');
+    const showLoginLink = document.querySelector('a[href="#login"]');
+
+    // Umschalten zum Registrierungsformular
+    showRegisterLink.addEventListener('click', (e) => {
+        e.preventDefault(); // Verhindert das Standardverhalten
+        registerSection.scrollIntoView({ behavior: 'smooth' }); // Scrollt sanft zum Registrierungsformular
+    });
+
+    // Umschalten zum Login-Formular
+    showLoginLink.addEventListener('click', (e) => {
+        e.preventDefault(); // Verhindert das Standardverhalten
+        loginSection.scrollIntoView({ behavior: 'smooth' }); // Scrollt sanft zum Login-Formular
+    });
+</script>
+
+
+
+
+</body>
+</html>
