@@ -1,94 +1,101 @@
+// Überprüfen, ob der Benutzer eingeloggt ist
+// Wenn nicht, wird zur Login-Seite weitergeleitet
+document.addEventListener("DOMContentLoaded", () => {
+  const authToken = localStorage.getItem("authToken");
+  const userId = localStorage.getItem("userId");
+
+  if (!authToken || !userId) {
+    alert("Bitte loggen Sie sich ein, um fortzufahren.");
+    window.location.href = "login.html"; // Weiterleitung zur Login-Seite
+  }
+});
+
+// Helper-Funktion: Validiert eine E-Mail-Adresse
 function validateEmail(email) {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
 }
 
+// Helper-Funktion: Validiert eine Telefonnummer
 function validatePhone(phone) {
-    const phonePattern = /^[0-9\s+()-]{7,15}$/;
-    return phonePattern.test(phone);
+  const phonePattern = /^[0-9\s+()-]{7,15}$/;
+  return phonePattern.test(phone);
 }
 
-function handleFormSubmit(event) {
-    event.preventDefault();
+// Ticket-Erstellung: Daten an den Backend-Ticket-Endpoint senden
+document.getElementById("booking-form").addEventListener("submit", async function (e) {
+  e.preventDefault(); // Verhindert das automatische Neuladen der Seite
 
-    // Eingaben aus dem Formular holen
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const allgemeinservice = document.querySelector('input[name="selection"]:checked')?.value;
-    const priority = document.getElementById('specialities').value;
-    const additionalOptions = Array.from(
-        document.querySelectorAll('input[name="additionalOptions"]:checked')
-    ).map(option => option.value);
+  // Formulardaten sammeln
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const serviceType = document.querySelector('input[name="selection"]:checked')?.value;
+  const priority = document.getElementById("specialities").value;
 
-    const service = `Service: ${allgemeinservice}, Additional Options: ${additionalOptions.join(', ')}`;
+  const authToken = localStorage.getItem("authToken");
+  const userId = localStorage.getItem("userId");
 
-    // Validierung der Eingaben
-    if (!validateEmail(email)) {
-        alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
-        return;
-    }
+  if (!authToken || !userId) {
+    alert("Sie müssen eingeloggt sein, um diesen Service zu buchen.");
+    window.location.href = "login.html";
+    return;
+  }
 
-    if (!validatePhone(phone)) {
-        alert('Bitte geben Sie eine gültige Telefonnummer ein.');
-        return;
-    }
+  // Validierung der Eingaben
+  if (!name || !email || !phone || !serviceType || !priority) {
+    alert("Bitte füllen Sie alle Pflichtfelder aus.");
+    return;
+  }
 
-    if (!service) {
-        alert('Bitte wählen Sie einen Service aus.');
-        return;
-    }
+  if (!validateEmail(email)) {
+    alert("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+    return;
+  }
 
-    if (!priority) {
-        alert('Bitte wählen Sie eine Bearbeitungszeit aus.');
-        return;
-    }
+  if (!validatePhone(phone)) {
+    alert("Bitte geben Sie eine gültige Telefonnummer ein.");
+    return;
+  }
 
-    // Datum erstellen
-    const currentDate = new Date();
-    const pickupDate = new Date();
-    pickupDate.setDate(currentDate.getDate() + (priority === 'express' ? 5 : priority === 'normal' ? 7 : 12));
+  // Payload erstellen
+  const payload = {
+    Name: name,
+    Email: email,
+    Phone: phone,
+    Priority: priority,
+    Service: serviceType,
+    Status: "Pending", // Standardstatus
+    AssignedTo: parseInt(userId), // Eingeloggter Benutzer
+  };
 
-    // Daten vorbereiten
-    const data = {
-        name,
-        email,
-        phone,
-        priority: priority.charAt(0).toUpperCase() + priority.slice(1), // Capitalize (Standard, Normal, Express)
-        service,
-        additionalOptions, // Optionale zusätzliche Services
-        create_date: currentDate.toISOString(),
-        pickup_date: pickupDate.toISOString()
-    };
-
+  try {
     // Daten an den Server senden
-    fetch('http://localhost:5000/api/registration', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => {
-            if (response.ok) {
-                document.getElementById('confirmationMessage').textContent =
-                    `Vielen Dank, ${name}! Ihr Serviceauftrag wurde erfolgreich eingereicht. Abholdatum: ${pickupDate.toISOString().split('T')[0]}`;
-                document.getElementById('confirmationMessage').classList.add('text-success');
+    const response = await fetch("http://localhost:5080/api/ServiceOrders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`, // Token für Authentifizierung
+      },
+      body: JSON.stringify(payload),
+    });
 
-                // Bestätigung hinzufügen
-                if (confirm('Ihre Eingaben wurden erfolgreich übermittelt. Möchten Sie die Seite neu laden?')) {
-                    location.reload(); // Seite neu laden, falls der Benutzer bestätigt
-                }
-            } else {
-                document.getElementById('confirmationMessage').textContent =
-                    'Fehler beim Absenden. Bitte versuchen Sie es erneut.';
-                document.getElementById('confirmationMessage').classList.add('text-danger');
-            }
-        })
-        .catch(error => {
-            console.error('Fehler:', error);
-            document.getElementById('confirmationMessage').textContent =
-                'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.';
-            document.getElementById('confirmationMessage').classList.add('text-danger');
-        });
-}
+    // Antwort des Servers verarbeiten
+    if (response.ok) {
+      document.getElementById("confirmationMessage").innerText =
+        "Buchung erfolgreich! Vielen Dank für Ihre Anfrage.";
+      document.getElementById("confirmationMessage").style.color = "green";
+    } else {
+      const error = await response.json();
+      console.error("Fehler beim Buchen:", error);
+      document.getElementById("confirmationMessage").innerText =
+        "Fehler bei der Buchung. Bitte versuchen Sie es später erneut.";
+      document.getElementById("confirmationMessage").style.color = "red";
+    }
+  } catch (error) {
+    console.error("Fehler beim Senden der Daten:", error);
+    document.getElementById("confirmationMessage").innerText =
+      "Es gab ein Problem beim Verbinden mit dem Server.";
+    document.getElementById("confirmationMessage").style.color = "red";
+  }
+});

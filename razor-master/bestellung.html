@@ -1,118 +1,89 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ski Service Ski</title>
-    <!-- bootstrap Style CSS File -->
+    <title>Ski Service Ski - Service buchen</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- Custom Style CSS File -->
-    <link rel="stylesheet" type="text/css" href="css/custom-style.css" />
-    <link rel="stylesheet" type="text/css" href="css/loaders.css" />
-    <!-- Font-Awesome Style CSS File -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="font-awesome/css/font-awesome.min.css"
-    />
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="css/custom-style.css" />
+    <!-- Optional: Font-Awesome CSS -->
+    <!-- <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" /> -->
     <style>
       /* Optimiertes Styling für das Formular */
       #service-form .form-control,
       #service-form .form-select,
       #service-form .form-check-input {
-        background-color: transparent; /* Entfernt Hintergrund */
-        border: 1px solid #ccc; /* Leichte Rahmenlinie */
-        color: #333; /* Dunkler Text */
+        background-color: transparent;
+        border: 1px solid #ccc;
+        color: #333;
       }
 
       #service-form .form-control:focus,
       #service-form .form-select:focus,
       #service-form .form-check-input:focus {
-        box-shadow: none; /* Entfernt Fokus-Schattierung */
-        border-color: #007bff; /* Fokusfarbe */
+        box-shadow: none;
+        border-color: #007bff;
       }
 
       #service-form button {
-        background-color: #007bff; /* Standard-Bootstrap-Blau */
+        background-color: #b57f38;
         color: white;
         border: none;
         transition: background-color 0.3s ease;
       }
 
       #service-form button:hover {
-        background-color: #0056b3; /* Dunkleres Blau bei Hover */
+        background-color: green;
       }
 
-      .card {
-        border: none; /* Entfernt Rahmen um die Karte */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Weicher Schatten */
-        .priority-table {
-          margin-top: 30px;
-          background-color: rgba(0, 0, 0, 0.8);
-          color: white;
-          border-radius: 10px;
-          overflow: hidden;
-        }
+      .priority-table {
+        margin-top: 30px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        border-radius: 10px;
+        overflow: hidden;
+      }
 
-        /* Styling für das Dropdown */
-        .styled-dropdown select {
-          background-color: #f9f9f9; /* Heller Hintergrund */
-          border: 2px solid #007bff; /* Blaue Umrandung */
-          border-radius: 8px; /* Abgerundete Ecken */
-          padding: 10px; /* Innenabstand */
-          font-size: 16px; /* Größere Schrift */
-          color: #333; /* Dunkler Text */
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Weicher Schatten */
-          transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+      .priority-table th,
+      .priority-table td {
+        padding: 10px;
+        text-align: center;
+      }
 
-        .styled-dropdown select:focus {
-          outline: none; /* Entfernt Standard-Fokus */
-          border-color: #0056b3; /* Dunklere Umrandung bei Fokus */
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Stärkerer Schatten */
-        }
+      .priority-table th {
+        background-color: #b57f38;
+      }
 
-        .styled-dropdown select option {
-          padding: 10px; /* Abstand für Optionen */
-          background-color: #ffffff; /* Weißer Hintergrund */
-          color: #333; /* Textfarbe */
-        }
+      .priority-table td {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
 
-        .priority-table th,
-        .priority-table td {
-          padding: 10px;
-          text-align: center;
-        }
+      .styled-dropdown select {
+        background-color: #f9f9f9;
+        border: 2px solid #007bff;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 16px;
+        color: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
 
-        .priority-table th {
-          background-color: #b57f38;
-        }
+      .styled-dropdown select:focus {
+        outline: none;
+        border-color: #0056b3;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
 
-        .priority-table td {
-          background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-primary {
-          background-color: #b57f38;
-          border: none;
-          transition: 0.3s ease;
-        }
-
-        .btn-primary:hover {
-          background-color: green;
-        }
+      .styled-dropdown select option {
+        padding: 10px;
+        background-color: #ffffff;
+        color: #333;
       }
     </style>
   </head>
   <body>
-    <!-- Page loading animation -->
-    <div class="loader loader-bg">
-      <div class="loader-inner ball-pulse">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-
-    <!-- Top navigation -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-md fixed-top top-nav">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html"
@@ -123,21 +94,16 @@
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"
-            ><img src="img/icons/menu.png"
-          /></span>
+          <span class="navbar-toggler-icon">
+            <img src="img/icons/menu.png" />
+          </span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto text-sm-right text-md-right">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html"
-                >Home <span class="sr-only">(current)</span></a
-              >
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="service.html">Services</a>
@@ -152,7 +118,9 @@
               <a class="nav-link" href="register.html">Registrieren</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="bestellung.html">Service buchen</a>
+              <a class="nav-link active" href="bestellung.html"
+                >Service buchen</a
+              >
             </li>
           </ul>
         </div>
@@ -168,13 +136,12 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        width: 100%vw;
         height: 100vh;
       "
     >
-      <div class="container">
+      <div class="container h-100 d-flex align-items-center">
         <div class="row">
-          <div class="col-lg-6 col-md-12 caption-two-panel ml-auto pt-5">
+          <div class="col-lg-6 col-md-12 caption-two-panel ml-auto">
             <div class="intro-caption mt-5">
               <h1 class="text-primary mb-2">
                 Perfekte Kanten. Sicherer Halt. Unvergessliche Abfahrten
@@ -192,12 +159,7 @@
     <section id="service-form" class="py-5" style="background-color: gray">
       <div class="container">
         <div class="card shadow-lg border-0 p-4">
-          <form
-            action="/submit-service"
-            method="post"
-            style="padding: 30px"
-            onsubmit="handleFormSubmit(event)"
-          >
+          <form id="booking-form" style="padding: 30px">
             <!-- Überschrift -->
             <h1 class="text-center mb-4 text-primary">Service buchen</h1>
 
@@ -210,7 +172,6 @@
                   type="text"
                   class="form-control"
                   id="name"
-                  name="name"
                   placeholder="Ihr Name"
                   required
                 />
@@ -221,7 +182,6 @@
                   type="email"
                   class="form-control"
                   id="email"
-                  name="email"
                   placeholder="Ihre E-Mail-Adresse"
                   required
                 />
@@ -233,13 +193,12 @@
                 type="text"
                 class="form-control"
                 id="phone"
-                name="phone"
                 placeholder="Ihre Telefonnummer"
                 required
               />
             </div>
 
-            <!-- Radio Buttons -->
+            <!-- Service auswählen -->
             <h4 class="mb-3 text-primary">Service auswählen</h4>
             <div class="mb-3" style="margin-left: 20px">
               <div class="form-check">
@@ -269,7 +228,7 @@
               </div>
             </div>
 
-            <!-- Checkboxen -->
+            <!-- Zusätzliche Optionen -->
             <h4 class="mb-3 text-primary">Zusätzliche Optionen</h4>
             <div class="mb-3" style="margin-left: 20px">
               <div class="form-check">
@@ -290,7 +249,7 @@
                   class="form-check-input"
                   id="checkbox2"
                   name="additionalOptions"
-                  value="Fell zuschneide"
+                  value="Fell zuschneiden"
                 />
                 <label for="checkbox2" class="form-check-label"
                   >Fell zuschneiden</label
@@ -310,27 +269,23 @@
               </div>
             </div>
 
-            <!-- Dropdown -->
+            <!-- Bearbeitungszeit -->
             <h4 class="mb-3 text-primary">Bearbeitungszeit</h4>
             <div class="mb-3">
               <label for="specialities" class="form-label fw-bold text-dark"
                 >Wählen Sie die gewünschte Priorität:</label
               >
               <div class="styled-dropdown">
-                <span class="input-group-text bg-primary text-white"> </span>
                 <select
                   class="form-select border-primary shadow-sm"
                   id="specialities"
-                  name="specialities"
                   required
                 >
-                  <!-- Standardoption -->
                   <option value="" selected disabled>
                     Bitte wählen Sie eine Option
                   </option>
-                  <!-- Weitere Optionen -->
                   <option value="normal">Normal (7 Tage)</option>
-                  <option value="express">Schnellservice (3 Tage)</option>
+                  <option value="express">Express (3 Tage)</option>
                   <option value="standard">Standard (5 Tage)</option>
                 </select>
               </div>
@@ -340,71 +295,61 @@
               >
             </div>
 
-            <!-- Tabelle -->
+            <!-- Prioritätstabelle -->
             <table class="table priority-table mt-4">
               <thead>
                 <tr>
                   <th>Priorität</th>
                   <th>Zusätzliche Tage</th>
-                  <th>Total Tage bis zur Fertigstellung</th>
+                  <th>Gesamtdauer</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Tief</td>
                   <td>+5</td>
-                  <td>12</td>
+                  <td>12 Tage</td>
                 </tr>
                 <tr>
                   <td>Standard</td>
                   <td>0</td>
-                  <td>7</td>
+                  <td>7 Tage</td>
                 </tr>
                 <tr>
                   <td>Express</td>
                   <td>-2</td>
-                  <td>5</td>
+                  <td>5 Tage</td>
                 </tr>
               </tbody>
             </table>
 
             <div id="confirmationMessage" class="confirmation-message"></div>
+
             <!-- Abschicken -->
             <div class="mt-4">
-              <button
-                type="submit"
-                class="btn w-100"
-                style="background-color: #b57f38"
-              >
-                Service buchen
-              </button>
+              <button type="submit" class="btn w-100">Service buchen</button>
             </div>
           </form>
         </div>
       </div>
     </section>
 
-    <!-- Footer Block -->
+    <!-- Footer -->
     <div class="copy-footer py-3" style="background-color: #b57f38">
       <div class="container text-center text-light">
-        <p class="mb-1">
-          &copy;
-          <a href="#" class="text-light" target="_blank">Ski-Service.com</a>
-          <span id="year"></span>. Alle Rechte vorbehalten.
-          <a
-            href="impressum.html"
-            style="color: white; text-decoration: underline"
-            >Impressum</a
-          >
+        <p>
+          &copy; <a href="#" class="text-light">Ski-Service.com</a>. Alle Rechte
+          vorbehalten.
+          <a href="impressum.html" style="color: white">Impressum</a>
         </p>
-        <p class="mb-0">
-          Website erstellt und betrieben von <strong>Lenny Brun</strong> und
+        <p>
+          Website erstellt von <strong>Lenny Brun</strong> und
           <strong>Ege Ulu</strong>.
         </p>
       </div>
     </div>
 
-    <!-- Javascript Files -->
+    <!-- JavaScript Files -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/core.js"></script>

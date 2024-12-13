@@ -2,19 +2,11 @@
 <html>
   <head>
     <title>Login - Ski Service Ski</title>
-    <!-- Bootstrap Style CSS File -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- Custom Style CSS File -->
-    <link rel="stylesheet" type="text/css" href="css/custom-style.css" />
-    <!-- Font-Awesome Style CSS File -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="font-awesome/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="css/custom-style.css" />
   </head>
   <body>
-    <!-- Top navigation -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-md fixed-top top-nav">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html"
@@ -29,17 +21,15 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"
-            ><img src="img/icons/menu.png"
-          /></span>
+          <span class="navbar-toggler-icon">
+            <img src="img/icons/menu.png" alt="Menu" />
+          </span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto text-sm-right text-md-right">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html"
-                >Home <span class="sr-only">(current)</span></a
-              >
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="service.html">Services</a>
@@ -65,25 +55,28 @@
     <section
       class="intro bg-overlay text-center d-flex align-items-center justify-content-center"
       style="
-        background-color: #b57f38;
-        width: 100vw;
+        background-image: url(img/skifahrerbild.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%vw;
         height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
       "
     >
-      <div class="card p-4 shadow-lg" style="width: 22rem; background-color: #fff;">
+      <div
+        class="card p-4 shadow-lg"
+        style="width: 22rem; background-color: #fff"
+      >
         <h2 class="text-center mb-4">Login</h2>
-        <form action="/login" method="post">
+        <form id="login-form">
           <div class="mb-3">
-            <label for="email" class="form-label">E-Mail-Adresse</label>
+            <label for="username" class="form-label">Benutzername</label>
             <input
-              type="email"
+              type="text"
               class="form-control"
-              id="email"
-              name="email"
-              placeholder="name@example.com"
+              id="username"
+              name="username"
+              placeholder="Benutzername"
               required
             />
           </div>
@@ -102,38 +95,33 @@
             <button type="submit" class="btn btn-primary">Login</button>
           </div>
           <div class="mt-3 text-center">
-            <!-- Der Link verweist jetzt korrekt auf register.html -->
-            <a href="register.html" class="btn btn-link">Noch kein Konto? Registrieren</a>
+            <a href="register.html" class="btn btn-link"
+              >Noch kein Konto? Registrieren</a
+            >
           </div>
         </form>
       </div>
     </section>
 
-    <!-- Footer Block -->
+    <!-- Footer -->
     <div class="copy-footer py-3" style="background-color: #b57f38">
       <div class="container text-center text-light">
-        <p class="mb-1">
-          &copy;
-          <a href="#" class="text-light" target="_blank">Ski-Service.com</a>
-          <span id="year"></span>. Alle Rechte vorbehalten.
-          <a
-            href="impressum.html"
-            style="color: white; text-decoration: underline"
-            >Impressum</a
-          >
+        <p>
+          &copy; <a href="#" class="text-light">Ski-Service.com</a>. Alle Rechte
+          vorbehalten.
+          <a href="impressum.html" style="color: white">Impressum</a>
         </p>
-        <p class="mb-0">
-          Website erstellt und betrieben von <strong>Lenny Brun</strong> und
+        <p>
+          Website erstellt von <strong>Lenny Brun</strong> und
           <strong>Ege Ulu</strong>.
         </p>
       </div>
     </div>
 
-    <!-- Javascript Files -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
     <script>
-      // Automatisch das aktuelle Jahr einfügen
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
